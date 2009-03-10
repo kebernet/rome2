@@ -1,0 +1,4 @@
+net.java.rome2.module.test.AModuleProvider # A simple module provider
+
+
+# Whitespace tests.
