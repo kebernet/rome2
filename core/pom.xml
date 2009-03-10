@@ -1,0 +1,54 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.java.rome</groupId>
+    <artifactId>rome2-core</artifactId>
+    <packaging>jar</packaging>
+    <version>2.0-SNAPSHOT</version>
+    <name>rome-core</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.1</version>
+            <scope>compile</scope>
+        </dependency>
+<!--
+        <dependency>
+            <groupId>stax</groupId>
+            <artifactId>stax-api</artifactId>
+            <version>1.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.woodstox</groupId>
+            <artifactId>wstx-asl</artifactId>
+            <version>3.1.2</version>
+            <scope>compile</scope>
+        </dependency>
+-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
+

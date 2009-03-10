@@ -1,0 +1,16 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.java.rome</groupId>
+    <artifactId>rome2</artifactId>
+    <packaging>pom</packaging>
+    <version>2.0-SNAPSHOT</version>
+    <name>rome2</name>
+    <modules>
+        <module>core</module>
+        <module>bag</module>
+        <module>modules</module>
+    </modules>
+
+</project>
+
