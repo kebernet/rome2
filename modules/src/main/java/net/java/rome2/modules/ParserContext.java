@@ -24,7 +24,7 @@ import java.util.Set;
 public class ParserContext {
     private static final Set<ModuleParser> EMPTY_PARSER_SET = Collections.unmodifiableSet(new HashSet<ModuleParser>());
     private Map<String, Object> attributes = new HashMap<String, Object>();
-    private Map<Class<?extends ModuleProvider>, Module> currentContextModules = null;
+    private Map<Class<?extends ModuleProvider>, Extension> currentContextModules = null;
     private Map<String, Map<String, Set<ModuleParser>>> entry = null;
     private Map<Class<?extends ModuleProvider>, ModuleFactory> factories = new HashMap<Class<?extends ModuleProvider>, ModuleFactory>();
     private Map<String, Map<String, Set<ModuleParser>>> feed = null;
@@ -111,15 +111,15 @@ public class ParserContext {
      * Intializes the cached module instances for a new context (feed, or each entry);
      */
     public void beginParseContext() {
-        this.currentContextModules = new HashMap<Class<?extends ModuleProvider>, Module>();
+        this.currentContextModules = new HashMap<Class<?extends ModuleProvider>, Extension>();
     }
 
     /**
      * Parses an element within an entry
      * @param e Element to parse
-     * @return a Module, or Null if it is unhandled. Modules can iteratively clobber.
+     * @return a Extension, or Null if it is unhandled. Modules can iteratively clobber.
      */
-    public Module handleEntryElement(Element e) {
+    public Extension handleEntryElement(Element e) {
         assert e != null : "Null element to handle";
         return this.handleElement(this.entry, e);
     }
@@ -127,9 +127,9 @@ public class ParserContext {
     /**
      * Parses a feed element and returns a module refernece or null
      * @param e Element to parse
-     * @return Module or null.
+     * @return Extension or null.
      */
-    public Module handleFeedElement(Element e) {
+    public Extension handleFeedElement(Element e) {
         assert e != null : "Null element to handle";
         return this.handleElement(this.feed, e);
     }
@@ -181,12 +181,12 @@ public class ParserContext {
         return nodes.get(nodeName);
     }
 
-    private Module handlSingleNode(
+    private Extension handlSingleNode(
         Map<String, Map<String, Set<ModuleParser>>> baseContextMap,
         String nameClobber, Element e) {
         for (ModuleParser p : this.getModuleParsers(baseContextMap,
                 e.getNamespaceURI(), nameClobber)) {
-            Module result = result = currentContextModules.get(p.getProviderClass());
+            Extension result = result = currentContextModules.get(p.getProviderClass());
 
             if (result == null) {
                 result = this.factories.get(p.getProviderClass()).create();
@@ -207,11 +207,11 @@ public class ParserContext {
      * Handles a module inside a single context map
      * @param baseContextMap context map to search
      * @param e element to parse
-     * @return Module or Null.
+     * @return Extension or Null.
      */
-    private Module handleElement(
+    private Extension handleElement(
         Map<String, Map<String, Set<ModuleParser>>> baseContextMap, Element e) {
-        Module result = this.handleSingleMap(this.entry, e);
+        Extension result = this.handleSingleMap(this.entry, e);
 
         if (result == null) {
             result = this.handleSingleMap(this.globals, e);
@@ -224,11 +224,11 @@ public class ParserContext {
      * Searches a single map of module parser for nodeName or wildcard
      * @param baseContextMap map to search
      * @param e Element to parse
-     * @return Module or Null.
+     * @return Extension or Null.
      */
-    private Module handleSingleMap(
+    private Extension handleSingleMap(
         Map<String, Map<String, Set<ModuleParser>>> baseContextMap, Element e) {
-        Module result = this.handlSingleNode(baseContextMap, e.getName(), e);
+        Extension result = this.handlSingleNode(baseContextMap, e.getName(), e);
 
         if (result != null) {
             return result;

@@ -11,6 +11,6 @@ package net.java.rome2.modules;
  *
  * @author kebernet
  */
-public interface EntryModuleParser<T extends Module> extends ModuleParser<T> {
+public interface EntryModuleParser<T extends Extension> extends ModuleParser<T> {
 
 }
