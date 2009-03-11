@@ -16,7 +16,7 @@ import org.jdom.Element;
  *
  * @author kebernet
  */
-public class AModuleProvider implements ModuleProvider, ModuleFactory<AModule>, EntryModuleParser<AModule> {
+public class AModuleProvider implements ModuleProvider, ModuleFactory<AExtension>, EntryModuleParser<AExtension> {
 
     public void init(ParserContext context) {
         context.setFactory(AModuleProvider.class, this);
@@ -24,15 +24,15 @@ public class AModuleProvider implements ModuleProvider, ModuleFactory<AModule>, 
         context.registerHandler(this, "urn:test:test", "test-content");
     }
 
-    public AModule create() {
-        return new AModule();
+    public AExtension create() {
+        return new AExtension();
     }
 
     public Class<? extends ModuleProvider> getProviderClass() {
         return AModuleProvider.class;
     }
 
-    public boolean parseModule(ParserContext context, AModule module, Element e) {
+    public boolean parseModule(ParserContext context, AExtension module, Element e) {
         if(e.getName().equals("category") ){
             if(e.getAttributeValue("scheme") != null && e.getAttributeValue("scheme").equals("urn:test:scheme") ){
                 module.setCategoryValue( e.getAttributeValue("term"));
