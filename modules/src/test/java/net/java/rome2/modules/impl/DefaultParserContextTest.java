@@ -4,7 +4,7 @@
  */
 package net.java.rome2.modules.impl;
 
-import net.java.rome2.module.test.AModule;
+import net.java.rome2.module.test.AExtension;
 import net.java.rome2.module.test.AModuleProvider;
 import net.java.rome2.modules.ModuleProvider;
 
@@ -55,11 +55,11 @@ public class DefaultParserContextTest {
         e.setAttribute("term", "test term");
         context.beginParseContext();
 
-        AModule module = (AModule) context.handleEntryElement(e);
+        AExtension module = (AExtension) context.handleEntryElement(e);
         assert (module.getCategoryValue().equals("test term"));
         e = new Element("test-content", Namespace.getNamespace("urn:test:test"));
         e.setText("test content test");
-        module = (AModule) context.handleEntryElement(e);
+        module = (AExtension) context.handleEntryElement(e);
         assert (module.getTestValue().equals("test content test"));
         assert (module.getCategoryValue().equals("test term"));
     }
@@ -73,7 +73,7 @@ public class DefaultParserContextTest {
         e.setAttribute("term", "test term");
         context.beginParseContext();
 
-        AModule module = (AModule) context.handleEntryElement(e);
+        AExtension module = (AExtension) context.handleEntryElement(e);
         assert (module.getCategoryValue().equals("test term"));
     }
 }

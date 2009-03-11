@@ -4,14 +4,14 @@
  */
 package net.java.rome2.module.test;
 
-import net.java.rome2.modules.Module;
+import net.java.rome2.modules.Extension;
 
 
 /**
  *
  * @author kebernet
  */
-public class AModule implements Module {
+public class AExtension implements Extension {
     private String testValue;
     private String categoryValue;
 
