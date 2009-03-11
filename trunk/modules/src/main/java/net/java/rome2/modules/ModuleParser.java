@@ -17,7 +17,7 @@ import org.jdom.Element;
  * @see FeedModuleParser
  * @author kebernet
  */
-public interface ModuleParser<T extends Module> {
+public interface ModuleParser<T extends Extension> {
 
     Class<? extends ModuleProvider> getProviderClass();
 

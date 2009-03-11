@@ -9,6 +9,6 @@ package net.java.rome2.modules;
  *
  * @author kebernet
  */
-public interface ModuleFactory<T extends Module> {
+public interface ModuleFactory<T extends Extension> {
     T create();
 }

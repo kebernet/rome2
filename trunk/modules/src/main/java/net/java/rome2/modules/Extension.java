@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author kebernet
  */
-public interface Module extends Serializable {
+public interface Extension extends Serializable {
 
     
 }
