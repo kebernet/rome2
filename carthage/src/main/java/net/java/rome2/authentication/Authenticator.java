@@ -6,6 +6,7 @@
 package net.java.rome2.authentication;
 
 import java.io.Serializable;
+import java.net.URI;
 
 /**
  *
@@ -15,7 +16,7 @@ public interface Authenticator<T extends AuthenticationCallback> extends Seriali
 
     public boolean isValid();
 
-    public boolean validate(T callback);
+    public boolean validate(URI uri, T callback);
 
 
     public AuthenticationRequestData getRequestData();

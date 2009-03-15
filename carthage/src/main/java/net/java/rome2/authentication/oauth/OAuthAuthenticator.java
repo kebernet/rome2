@@ -7,9 +7,6 @@ package net.java.rome2.authentication.oauth;
 
 import java.io.IOException;
 import java.net.URI;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
