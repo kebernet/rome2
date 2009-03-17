@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @author kebernet
  */
-public class AuthenticatorStore implements Serializable {
+public class Authentication implements Serializable {
 
 
     private Map<URI, Authenticator> authenticators = new HashMap<URI, Authenticator>();
