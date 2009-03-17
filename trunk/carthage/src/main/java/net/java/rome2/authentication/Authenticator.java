@@ -18,7 +18,6 @@ public interface Authenticator<T extends AuthenticationCallback> extends Seriali
 
     public boolean validate(URI uri, T callback);
 
-
     public AuthenticationRequestData getRequestData();
 
     public void setResponseData(AuthenticationResponseData response);
