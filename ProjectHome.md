@@ -1,0 +1,1 @@
+The second generation ROME API will be based on newer JREs, be faster, treat RSS and Atom as first class models, have an improved plugin system, and better support for Java EE and Dependency Injection frameworks.
